@@ -14,6 +14,16 @@ def removeDup(nums):
 
     return tail+1
 
+# 数组中每个元素可以最多出现两次，求删除多余元素后数组的长度。
+
+def removeDups(nums):
+    i = 0 
+    for n in nums:
+        if i<2 or n > nums[i-2]:
+            nums[i]=n
+            i +=1
+    return i 
+
 # 移除链表中重复的元素。
 
 def romoveList(head):
