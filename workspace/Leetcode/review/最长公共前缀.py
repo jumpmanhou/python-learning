@@ -16,4 +16,4 @@ def longestCommonPrefix(strs):
     return first
 
 
-print (longestCommonPrefix(['abc','ab','a']))
+print (longestCommonPrefix(['abc','ab','a','ac']))

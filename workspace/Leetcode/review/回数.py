@@ -12,7 +12,7 @@ def isPalindrome1(x):
     return (half ==x or x==half/10)
 
 
-print(isPalindrome1(12344321))
+# print(isPalindrome1(12344321))
 
 # 判断一字符串是不是回文字符串，不考虑标点及大小写。
 
@@ -31,9 +31,17 @@ def isPlindrome2(s):
         l +=1
         r -=1
     return True
+def isPalindrome(s):
+        """
+        :type s: str
+        :rtype: bool
+        """
+        ss = [c for c in s if c.isalnum()]
+        
+        return ''.join(ss).lower() == ''.join(ss)[::-1].lower()
 
 
-print (isPlindrome2("12344321"))
+print (isPalindrome("12344321"))
     
     
     

@@ -16,3 +16,21 @@ def isValid(s):
 
 
 print (isValid("()[]{}"))
+
+# 给n对小括号，求出所有有效的括号排列方式
+
+def generateParenthese(n):
+    res = []
+    dfs(n,n,'',res)
+    return res 
+
+def dfs(l,r, path,res):
+    if l>r:
+        return 
+    if l==0 and r == 0:
+        res.append(path)
+    if l:
+        dfs(l-1,r, path+'(',res)
+    if r:
+        dfs(l,r-1,path+')',res)
+        

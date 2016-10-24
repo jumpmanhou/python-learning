@@ -10,26 +10,34 @@ Write the code that will take a string and make this conversion given a number o
 string convert(string text, int nRows);
 convert("PAYPALISHIRING", 3) should return "PAHNAPLSIIGYIR".
 '''
-#
+from pipes import stepkinds
+
+
 class Solution(object):
-    def convert(self, s, numRows):
+    def convert(self, s, nRows):
         """
         :type s: str
         :type numRows: int
         :rtype: str
         """
-        if nRows==1:
+        if nRows ==1 or len(s)<nRows:
             return s
-        period= 2*(nRows -1)
-        lines=["" for i in range(nRows)]
-        d={} # dict remainder:line
-        for i in xrange(period):
-            if i<nRows:
-                d[i]=i
-            else:
-                d[i]=period-i
+        
+        row ,step = 0,1
+        
+        zigzag = ['' for x in range(nRows)]
+        
+        for c in s:
+            zigzag[row]+=c
+            if row == 0:
+                step =1
+            elif row == nRows -1:
+                step = -1
+                
+            row += step
+        return ''.join(zigzag)
     
-        for i in xrange(len(s)):
-            lines[ d[i%period] ] +=s[i]
     
-        return "".join(lines)
+s = Solution()
+
+print(s.convert('PAYPALISHIRING', 3))
